@@ -67,7 +67,7 @@ export function Projects() {
                       <div className="text-[10px] uppercase tracking-widest text-muted-foreground">
                         {p.stack[0]} · {p.stack[1] ?? ""}
                       </div>
-                      <h3 className="mt-2 font-display text-xl font-bold tracking-tight text-white group-hover:text-primary transition-colors">
+                      <h3 className="mt-2 font-display text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
                         {p.name}
                       </h3>
                       <p className="mt-2 text-xs text-muted-foreground line-clamp-3">
@@ -120,16 +120,17 @@ export function Projects() {
             <div className="flex gap-2">
               <button
                 onClick={() => api?.scrollPrev()}
-                className="grid h-9 w-9 place-items-center rounded-full border border-border bg-surface/60 text-white hover:border-primary/40 hover:text-primary transition-all active:scale-95 cursor-pointer"
+                className="grid h-9 w-9 place-items-center rounded-full border border-border bg-surface/60 text-foreground hover:border-primary/40 hover:text-primary transition-all active:scale-95 cursor-pointer"
                 aria-label="Previous slide"
               >
                 <ArrowLeft className="h-4 w-4" />
               </button>
               <button
                 onClick={() => api?.scrollNext()}
-                className="grid h-9 w-9 place-items-center rounded-full border border-border bg-surface/60 text-white hover:border-primary/40 hover:text-primary transition-all active:scale-95 cursor-pointer"
+                className="grid h-9 w-9 place-items-center rounded-full border border-border bg-surface/60 text-foreground hover:border-primary/40 hover:text-primary transition-all active:scale-95 cursor-pointer"
                 aria-label="Next slide"
               >
+
                 <ArrowRight className="h-4 w-4" />
               </button>
             </div>

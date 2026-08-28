@@ -5,12 +5,15 @@ import tsConfigPaths from "vite-tsconfig-paths";
 import tailwindcss from "@tailwindcss/vite";
 import { fileURLToPath, URL } from "node:url";
 
-export default defineConfig(async ({ command }) => {
+export default defineConfig((async ({ command }: { command: string }) => {
   const plugins = [
     tailwindcss(),
     tsConfigPaths({ projects: ["./tsconfig.json"] }),
     tanstackStart({
       server: { entry: "server" },
+      serverFns: {
+        disableCsrfMiddlewareWarning: true,
+      },
       importProtection: {
         behavior: "error",
         client: {
@@ -19,6 +22,7 @@ export default defineConfig(async ({ command }) => {
         },
       },
     }),
+
     react(),
   ];
 
@@ -69,4 +73,4 @@ export default defineConfig(async ({ command }) => {
       port: 8080,
     },
   };
-});
+}) as any);

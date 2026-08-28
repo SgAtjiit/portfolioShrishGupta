@@ -62,7 +62,7 @@ export function Contact() {
             <div className="text-[10px] font-mono uppercase tracking-widest text-primary font-bold">
               / COMMAND-CENTER
             </div>
-            <h3 className="mt-2 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h3 className="mt-2 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Reach out.
             </h3>
             <p className="mt-2 text-sm text-muted-foreground">
@@ -81,20 +81,20 @@ export function Contact() {
                       EMAIL
                     </span>
                   </div>
-                  <div className="mt-3 truncate text-xs font-semibold text-white">
+                  <div className="mt-3 truncate text-xs font-semibold text-foreground">
                     {profile.email}
                   </div>
                 </div>
                 <div className="mt-2 flex gap-1.5 justify-end">
                   <a
                     href={`mailto:${profile.email}`}
-                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-white px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all"
+                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-foreground px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all"
                   >
                     OPEN ↗
                   </a>
                   <button
                     onClick={() => handleCopy(profile.email, "Email")}
-                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-white px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all cursor-pointer"
+                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-foreground px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all cursor-pointer"
                   >
                     COPY
                   </button>
@@ -112,20 +112,20 @@ export function Contact() {
                       PHONE
                     </span>
                   </div>
-                  <div className="mt-3 truncate text-xs font-semibold text-white">
+                  <div className="mt-3 truncate text-xs font-semibold text-foreground">
                     {profile.phone}
                   </div>
                 </div>
                 <div className="mt-2 flex gap-1.5 justify-end">
                   <a
                     href={`tel:${profile.phone}`}
-                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-white px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all"
+                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-foreground px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all"
                   >
                     OPEN ↗
                   </a>
                   <button
                     onClick={() => handleCopy(profile.phone, "Phone number")}
-                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-white px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all cursor-pointer"
+                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-foreground px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all cursor-pointer"
                   >
                     COPY
                   </button>
@@ -143,7 +143,7 @@ export function Contact() {
                       LINKEDIN
                     </span>
                   </div>
-                  <div className="mt-3 truncate text-xs font-semibold text-white">
+                  <div className="mt-3 truncate text-xs font-semibold text-foreground">
                     shrish-gupta-
                   </div>
                 </div>
@@ -152,13 +152,13 @@ export function Contact() {
                     href={profile.linkedin}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-white px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all"
+                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-foreground px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all"
                   >
                     OPEN ↗
                   </a>
                   <button
                     onClick={() => handleCopy(profile.linkedin, "LinkedIn URL")}
-                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-white px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all cursor-pointer"
+                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-foreground px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all cursor-pointer"
                   >
                     COPY
                   </button>
@@ -176,23 +176,25 @@ export function Contact() {
                       GITHUB
                     </span>
                   </div>
-                  <div className="mt-3 truncate text-xs font-semibold text-white">
+                  <div className="mt-3 truncate text-xs font-semibold text-foreground">
                     SgAtjiit
                   </div>
                 </div>
                 <div className="mt-2 flex gap-1.5 justify-end">
                   <a
                     href={profile.github}
+
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-white px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all"
+                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-foreground px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all"
                   >
                     OPEN ↗
                   </a>
                   <button
                     onClick={() => handleCopy(profile.github, "GitHub URL")}
-                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-white px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all cursor-pointer"
+                    className="inline-flex items-center gap-1 rounded bg-surface/80 border border-border/80 hover:border-primary/40 hover:text-foreground px-2 py-0.5 text-[10px] font-semibold text-muted-foreground transition-all cursor-pointer"
                   >
+
                     COPY
                   </button>
                 </div>
@@ -214,7 +216,7 @@ export function Contact() {
                   value={formName}
                   onChange={(e) => setFormName(e.target.value)}
                   required
-                  className="w-full rounded-xl border border-border bg-background/50 px-4 py-2.5 text-xs text-white placeholder-muted-foreground focus:border-primary/50 focus:outline-none transition-colors"
+                  className="w-full rounded-xl border border-border bg-background/50 px-4 py-2.5 text-xs text-foreground placeholder-muted-foreground focus:border-primary/50 focus:outline-none transition-colors"
                 />
               </div>
               <div>
@@ -223,7 +225,7 @@ export function Contact() {
                   placeholder="Your Email"
                   value={formEmail}
                   onChange={(e) => setFormEmail(e.target.value)}
-                  className="w-full rounded-xl border border-border bg-background/50 px-4 py-2.5 text-xs text-white placeholder-muted-foreground focus:border-primary/50 focus:outline-none transition-colors"
+                  className="w-full rounded-xl border border-border bg-background/50 px-4 py-2.5 text-xs text-foreground placeholder-muted-foreground focus:border-primary/50 focus:outline-none transition-colors"
                 />
               </div>
             </div>
@@ -235,7 +237,7 @@ export function Contact() {
                 onChange={(e) => setFormMessage(e.target.value)}
                 required
                 rows={3}
-                className="w-full rounded-xl border border-border bg-background/50 px-4 py-2.5 text-xs text-white placeholder-muted-foreground focus:border-primary/50 focus:outline-none transition-colors resize-none"
+                className="w-full rounded-xl border border-border bg-background/50 px-4 py-2.5 text-xs text-foreground placeholder-muted-foreground focus:border-primary/50 focus:outline-none transition-colors resize-none"
               />
             </div>
             
@@ -251,7 +253,7 @@ export function Contact() {
                 href={profile.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-5 py-2.5 text-xs font-semibold hover:border-primary/40 hover:text-white transition-all active:scale-[0.98]"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-5 py-2.5 text-xs font-semibold hover:border-primary/40 hover:text-foreground transition-all active:scale-[0.98]"
               >
                 <Download className="h-3.5 w-3.5" /> Download résumé
               </a>
@@ -273,7 +275,7 @@ export function Contact() {
               <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
                 CURRENTLY BASED IN
               </div>
-              <div className="mt-4 flex items-center gap-2 font-display text-xl font-bold text-white sm:text-2xl">
+              <div className="mt-4 flex items-center gap-2 font-display text-xl font-bold text-foreground sm:text-2xl">
                 <MapPin className="h-5 w-5 text-primary" />
                 {profile.location}
               </div>
@@ -289,7 +291,7 @@ export function Contact() {
               <div className="text-[10px] font-mono uppercase tracking-widest text-primary font-bold">
                 STATUS
               </div>
-              <div className="mt-4 flex items-center gap-2.5 font-display text-sm font-bold text-white sm:text-base">
+              <div className="mt-4 flex items-center gap-2.5 font-display text-sm font-bold text-foreground sm:text-base">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>

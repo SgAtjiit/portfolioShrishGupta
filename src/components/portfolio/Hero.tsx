@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, Download, Mail, MapPin, Github, Linkedin, Sparkles } from "lucide-react";
+import { ArrowRight, Download, Mail, MapPin, Sparkles } from "lucide-react";
 import { profile, skills } from "@/content/portfolio";
+import { scrollToSection } from "@/hooks/useSmoothScroll";
 
 const words = [
-  "Full Stack Engineer",
-  "Real-time Systems Developer",
-  "AI Application Builder",
-  "Backend Architect",
+  "Student",
+  "Full Stack Developer",
+  "Problem Solver",
+  "MERN Developer",
 ];
 
 export function Hero() {
@@ -52,7 +53,7 @@ export function Hero() {
     <section id="home" className="relative min-h-screen overflow-hidden pt-28 flex flex-col justify-between">
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
       <div className="pointer-events-none absolute inset-0 bg-radial-fade" />
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-96 w-[80%] -translate-x-1/2 rounded-full bg-primary/20 blur-[120px]" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 h-96 w-[80%] -translate-x-1/2 rounded-full bg-primary/20 blur-3xl transform-gpu translate-z-0" />
 
       <div className="relative mx-auto max-w-6xl px-4 pt-16 sm:pt-24 w-full flex-1 flex items-center">
         <div className="grid gap-12 lg:grid-cols-12 items-center w-full">
@@ -72,7 +73,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.05 }}
-              className="max-w-4xl text-6xl font-bold leading-[1.05] tracking-tight sm:text-8xl md:text-9xl text-white"
+              className="max-w-4xl text-6xl font-bold leading-[1.05] tracking-tight sm:text-8xl md:text-9xl text-foreground"
             >
               Shrish
               <br />
@@ -87,7 +88,8 @@ export function Hero() {
               className="flex items-center gap-2 font-display text-sm font-medium uppercase tracking-widest sm:text-base"
             >
               <span className="text-muted-foreground">CURRENTLY</span>
-              <span className="text-white font-bold tracking-normal sm:text-lg">
+              <span className="text-foreground font-bold tracking-normal sm:text-lg">
+
                 {words[index].substring(0, subIndex)}
                 <span className={`inline-block w-[3px] h-[18px] bg-primary ml-1 align-middle ${blink ? "opacity-100" : "opacity-0"}`} />
               </span>
@@ -109,18 +111,14 @@ export function Hero() {
               className="flex flex-wrap items-center gap-3 pt-4"
             >
               <button
-                onClick={() =>
-                  document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
-                }
+                onClick={() => scrollToSection("projects", 0)}
                 className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-transform hover:scale-[1.02]"
               >
                 View Projects
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
               <button
-                onClick={() =>
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-                }
+                onClick={() => scrollToSection("contact", 0)}
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-6 py-3 text-sm font-semibold backdrop-blur transition-colors hover:border-primary/40"
               >
                 <Mail className="h-4 w-4" />
@@ -142,8 +140,12 @@ export function Hero() {
           <div className="lg:col-span-5 flex justify-center lg:justify-end w-full">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              animate={{ opacity: 1, scale: 1, y: [0, -8, 0] }}
+              transition={{
+                opacity: { duration: 0.6, delay: 0.2 },
+                scale: { duration: 0.6, delay: 0.2 },
+                y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+              }}
               className="w-full max-w-sm rounded-2xl border border-border/80 bg-[#070709] p-5 shadow-[0_0_40px_rgba(99,102,241,0.06)] backdrop-blur"
             >
               {/* Header */}
@@ -170,8 +172,9 @@ export function Hero() {
                     <span className="text-indigo-400">stack</span>: [<span className="text-primary">"Full Stack"</span>, <span className="text-primary">"MERN"</span>, <span className="text-primary">"AI"</span>],
                   </div>
                   <div>
-                    <span className="text-indigo-400">dsa problems solved</span>: <span className="text-amber-400">862</span>,
+                    <span className="text-indigo-400">dsa problems solved</span>: <span className="text-amber-400">"900+"</span>,
                   </div>
+
                   <div>
                     <span className="text-indigo-400">shipping</span>: <span className="text-emerald-400">true</span>
                   </div>

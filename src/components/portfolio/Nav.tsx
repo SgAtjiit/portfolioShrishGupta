@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X, Sun, Moon, Download } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { navSections, profile } from "@/content/portfolio";
+import { scrollToSection } from "@/hooks/useSmoothScroll";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -13,35 +14,53 @@ export function Nav() {
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPos = window.scrollY;
+    let lastScrollY = window.scrollY;
+    let ticking = false;
 
-      if (scrollPos < 50) {
+    const updateScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY >= 50);
+
+      if (currentScrollY < 50) {
         setVisible(true);
-        setScrolled(false);
-        return;
+      } else {
+        // Show when scrolling up, hide when scrolling down
+        setVisible(currentScrollY < lastScrollY);
       }
 
-      setScrolled(true);
+      // Determine active section based on section offsetTop
+      const triggerPoint = currentScrollY + 250;
+      let currentActive = navSections[0]?.id || "home";
 
-      // Detect if we are close to the header line of any section
-      const sections = navSections.map((s) => document.getElementById(s.id));
-      let isNearSectionBoundary = false;
-      const boundaryThreshold = 100; // px threshold around section snap point (80px)
-
-      for (const el of sections) {
+      for (const section of navSections) {
+        const el = document.getElementById(section.id);
         if (el) {
-          const rect = el.getBoundingClientRect();
-          // Sections snap when rect.top === 0.
-          // We check if the section header is near the top of the viewport.
-          if (Math.abs(rect.top) < boundaryThreshold) {
-            isNearSectionBoundary = true;
-            break;
+          const top = el.offsetTop;
+          if (triggerPoint >= top) {
+            currentActive = section.id;
           }
         }
       }
 
-      setVisible(isNearSectionBoundary);
+      // Highlight contact when at the very bottom of the page
+      if (
+        window.innerHeight + Math.round(currentScrollY) >=
+        document.documentElement.scrollHeight - 50
+      ) {
+        currentActive = navSections[navSections.length - 1].id;
+      }
+
+      setActive(currentActive);
+
+      lastScrollY = currentScrollY;
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScroll);
+        ticking = true;
+      }
     };
 
     handleScroll();
@@ -50,52 +69,13 @@ export function Nav() {
   }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
-        });
-      },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
-    );
-    navSections.forEach((s) => {
-      const el = document.getElementById(s.id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
     document.documentElement.classList.toggle("light", light);
   }, [light]);
 
-  useEffect(() => {
-    if (!hovered && window.scrollY >= 50) {
-      const sections = navSections.map((s) => document.getElementById(s.id));
-      let isNearSectionBoundary = false;
-      for (const el of sections) {
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (Math.abs(rect.top) < 100) {
-            isNearSectionBoundary = true;
-            break;
-          }
-        }
-      }
-
-      if (!isNearSectionBoundary) {
-        const timeout = setTimeout(() => {
-          if (!open) setVisible(false);
-        }, 1000);
-        return () => clearTimeout(timeout);
-      }
-    }
-  }, [hovered, open]);
-
   const handleClick = (id: string) => {
     setOpen(false);
-    const el = document.getElementById(id);
-    el?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setActive(id);
+    scrollToSection(id, 0);
   };
 
   return (
@@ -119,11 +99,11 @@ export function Nav() {
             to="/"
             className="flex items-center gap-2 font-display text-sm font-bold tracking-wider"
           >
-            <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-900 font-display text-sm font-bold text-white shadow-md">
+            <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-900 font-display text-sm font-bold text-foreground shadow-md">
               S
               <span className="absolute bottom-0.5 right-0.5 h-2 w-2 rounded-full bg-primary border border-background animate-pulse" />
             </div>
-            <span className="font-display font-bold text-white text-xs tracking-wider">SHRISH GUPTA</span>
+            <span className="font-display font-bold text-foreground text-xs tracking-wider">SHRISH GUPTA</span>
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">
@@ -132,8 +112,8 @@ export function Nav() {
                 key={s.id}
                 onClick={() => handleClick(s.id)}
                 className={`relative rounded-full px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider transition-colors ${active === s.id
-                    ? "text-white"
-                    : "text-muted-foreground hover:text-white"
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                   }`}
               >
                 {active === s.id && (

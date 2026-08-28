@@ -120,7 +120,6 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-snap-type: y proximity;
   }
 
   body {
@@ -138,7 +137,6 @@
 
   section {
     scroll-margin-top: 0;
-    scroll-snap-align: start;
   }
 
   ::selection {
@@ -174,6 +172,7 @@
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
+  transform: translateZ(0);
 }
 
 @utility card-hover {

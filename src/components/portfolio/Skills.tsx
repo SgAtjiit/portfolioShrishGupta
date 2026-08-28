@@ -109,7 +109,7 @@ export function Skills() {
                   <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
                     STACK
                   </div>
-                  <h3 className="font-display font-bold text-white text-base leading-tight">
+                  <h3 className="font-display font-bold text-foreground text-base leading-tight">
                     {group.category}
                   </h3>
                 </div>
@@ -118,11 +118,12 @@ export function Skills() {
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-border bg-surface/30 px-3 py-1 text-xs text-muted-foreground transition-all duration-300 hover:border-primary hover:text-white hover:bg-primary/5 cursor-default"
+                    className="rounded-full border border-border bg-surface/30 px-3 py-1 text-xs text-muted-foreground transition-all duration-300 hover:border-primary hover:text-foreground hover:bg-primary/5 cursor-default"
                   >
                     {item}
                   </span>
                 ))}
+
               </div>
             </motion.div>
           );
