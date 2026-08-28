@@ -42,12 +42,12 @@ export function RatingChart({
           <div className="flex items-center gap-3 font-mono text-[11px]">
             {currentRating !== undefined && (
               <span className="text-foreground">
-                Current: <strong className="text-white">{currentRating}</strong>
+                Current: <strong className="text-foreground">{currentRating}</strong>
               </span>
             )}
             {maxRating !== undefined && (
               <span className="text-muted-foreground">
-                Peak: <strong className="text-primary">{maxRating}</strong>
+                Peak: <strong className="text-foreground">{maxRating}</strong>
               </span>
             )}
           </div>
@@ -86,7 +86,7 @@ export function RatingChart({
                   return (
                     <div className="rounded-lg border border-border/80 bg-background/90 p-2 shadow-xl backdrop-blur">
                       <p className="font-mono text-[10px] text-muted-foreground">{p.contest}</p>
-                      <p className="font-display text-sm font-bold text-white">
+                      <p className="font-display text-sm font-bold text-foreground">
                         Rating: <span style={{ color }}>{p.rating}</span>
                       </p>
                     </div>

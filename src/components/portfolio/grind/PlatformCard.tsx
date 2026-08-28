@@ -92,7 +92,7 @@ export function PlatformCard({
               )}
             </div>
 
-            <h3 className="mt-1 font-display text-2xl font-bold text-white group-hover:text-primary transition-colors">
+            <h3 className="mt-1 font-display text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
               {platform}
             </h3>
             <p className="text-xs font-mono text-muted-foreground">@{handle}</p>
@@ -165,7 +165,7 @@ export function PlatformCard({
                     <div className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
                       Streak Status
                     </div>
-                    <div className="mt-1 font-display text-xl font-bold text-white">
+                    <div className="mt-1 font-display text-xl font-bold text-foreground">
                       {data.gfg.longestStreak} Days Max
                     </div>
                   </div>
