@@ -5,20 +5,18 @@ import {
   Server,
   BrainCircuit,
   Database,
-  ShieldCheck,
-  Cloud,
+  Sparkles,
 } from "lucide-react";
 import { skills } from "@/content/portfolio";
 import { Section } from "./Section";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Languages: Code2,
-  Frontend: Layout,
-  Backend: Server,
-  "AI / ML": BrainCircuit,
-  Databases: Database,
-  "Auth & Security": ShieldCheck,
-  "Cloud & DevOps": Cloud,
+  "Backend & Architecture": Server,
+  "Frontend & UI": Layout,
+  "Databases & Storage": Database,
+  "Applied AI & LLMs": BrainCircuit,
+  "AI-Native Stack & Tools": Sparkles,
+  "Languages & Core CS": Code2,
 };
 
 const cardTheming: Record<
@@ -30,47 +28,41 @@ const cardTheming: Record<
     shadow: string;
   }
 > = {
-  Languages: {
-    border: "border-violet-500/20 hover:border-violet-500/40",
-    bg: "bg-[#110e26]/80",
-    text: "text-violet-400",
-    shadow: "shadow-[0_0_15px_rgba(139,92,246,0.06)]",
-  },
-  Frontend: {
-    border: "border-indigo-500/20 hover:border-indigo-500/40",
-    bg: "bg-[#0e122b]/80",
-    text: "text-indigo-400",
-    shadow: "shadow-[0_0_15px_rgba(99,102,241,0.06)]",
-  },
-  Backend: {
+  "Backend & Architecture": {
     border: "border-emerald-500/20 hover:border-emerald-500/40",
     bg: "bg-[#0b1f15]/80",
     text: "text-emerald-400",
     shadow: "shadow-[0_0_15px_rgba(16,185,129,0.06)]",
   },
-  "AI / ML": {
-    border: "border-amber-500/20 hover:border-amber-500/40",
-    bg: "bg-[#1f1a0b]/80",
-    text: "text-amber-400",
-    shadow: "shadow-[0_0_15px_rgba(245,158,11,0.06)]",
+  "Frontend & UI": {
+    border: "border-indigo-500/20 hover:border-indigo-500/40",
+    bg: "bg-[#0e122b]/80",
+    text: "text-indigo-400",
+    shadow: "shadow-[0_0_15px_rgba(99,102,241,0.06)]",
   },
-  Databases: {
+  "Databases & Storage": {
     border: "border-cyan-500/20 hover:border-cyan-500/40",
     bg: "bg-[#0c1b24]/80",
     text: "text-cyan-400",
     shadow: "shadow-[0_0_15px_rgba(6,182,212,0.06)]",
   },
-  "Auth & Security": {
-    border: "border-rose-500/20 hover:border-rose-500/40",
-    bg: "bg-[#240c0f]/80",
-    text: "text-rose-400",
-    shadow: "shadow-[0_0_15px_rgba(244,63,94,0.06)]",
+  "Applied AI & LLMs": {
+    border: "border-amber-500/20 hover:border-amber-500/40",
+    bg: "bg-[#1f1a0b]/80",
+    text: "text-amber-400",
+    shadow: "shadow-[0_0_15px_rgba(245,158,11,0.06)]",
   },
-  "Cloud & DevOps": {
-    border: "border-sky-500/20 hover:border-sky-500/40",
-    bg: "bg-[#0c1e28]/80",
-    text: "text-sky-400",
-    shadow: "shadow-[0_0_15px_rgba(14,165,233,0.06)]",
+  "AI-Native Stack & Tools": {
+    border: "border-fuchsia-500/20 hover:border-fuchsia-500/40",
+    bg: "bg-[#200c24]/80",
+    text: "text-fuchsia-400",
+    shadow: "shadow-[0_0_15px_rgba(217,70,239,0.06)]",
+  },
+  "Languages & Core CS": {
+    border: "border-violet-500/20 hover:border-violet-500/40",
+    bg: "bg-[#110e26]/80",
+    text: "text-violet-400",
+    shadow: "shadow-[0_0_15px_rgba(139,92,246,0.06)]",
   },
 };
 

@@ -55,12 +55,19 @@ export function Projects() {
                   onClick={() => setActive(p)}
                   className="group glass card-hover relative flex h-[350px] w-full flex-col justify-between overflow-hidden rounded-3xl p-6 text-left"
                 >
-                  {p.featured && (
-                    <div className="absolute right-4 top-4 z-10 inline-flex items-center gap-1 rounded-full border border-primary/40 bg-primary/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
-                      <Star className="h-3 w-3 fill-primary" />
-                      Featured
-                    </div>
-                  )}
+                  <div className="absolute right-4 top-4 z-10 flex items-center gap-1.5">
+                    {p.isBackendOnly && (
+                      <span className="rounded-full border border-emerald-500/40 bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-emerald-400">
+                        Backend API
+                      </span>
+                    )}
+                    {p.featured && (
+                      <span className="inline-flex items-center gap-1 rounded-full border border-primary/40 bg-primary/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
+                        <Star className="h-3 w-3 fill-primary" />
+                        Featured
+                      </span>
+                    )}
+                  </div>
                   
                   <div className="flex flex-col h-full justify-between">
                     <div>
@@ -171,12 +178,19 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         </button>
 
         <div className="pr-10">
-          {project.featured && (
-            <div className="mb-3 inline-flex items-center gap-1 rounded-full border border-primary/40 bg-primary/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
-              <Star className="h-3 w-3 fill-primary" />
-              Featured
-            </div>
-          )}
+          <div className="mb-3 flex items-center gap-2">
+            {project.isBackendOnly && (
+              <div className="inline-flex items-center gap-1 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-emerald-400">
+                Backend API Service
+              </div>
+            )}
+            {project.featured && (
+              <div className="inline-flex items-center gap-1 rounded-full border border-primary/40 bg-primary/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
+                <Star className="h-3 w-3 fill-primary" />
+                Featured
+              </div>
+            )}
+          </div>
           <h3 className="font-display text-3xl font-bold tracking-tight">{project.name}</h3>
           <p className="mt-1 text-muted-foreground">{project.tagline}</p>
         </div>
@@ -235,8 +249,13 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
               className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-5 py-2.5 text-sm font-semibold hover:border-primary/40"
             >
               <Github className="h-4 w-4" />
-              GitHub
+              {project.isBackendOnly ? "Repository & Architecture Docs" : "GitHub"}
             </a>
+          )}
+          {project.isBackendOnly && (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-xs font-medium text-emerald-400">
+              RESTful Service Architecture
+            </span>
           )}
         </div>
       </motion.div>

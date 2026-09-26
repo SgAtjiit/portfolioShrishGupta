@@ -5,10 +5,10 @@ import { profile, skills } from "@/content/portfolio";
 import { scrollToSection } from "@/hooks/useSmoothScroll";
 
 const words = [
-  "Student",
   "Full Stack Developer",
-  "Problem Solver",
-  "MERN Developer",
+  "Node.js & Express Backend",
+  "React & TypeScript Developer",
+  "Active Problem Solver",
 ];
 
 export function Hero() {
@@ -89,7 +89,6 @@ export function Hero() {
             >
               <span className="text-muted-foreground">CURRENTLY</span>
               <span className="text-foreground font-bold tracking-normal sm:text-lg">
-
                 {words[index].substring(0, subIndex)}
                 <span className={`inline-block w-[3px] h-[18px] bg-primary ml-1 align-middle ${blink ? "opacity-100" : "opacity-0"}`} />
               </span>
@@ -146,7 +145,7 @@ export function Hero() {
                 scale: { duration: 0.6, delay: 0.2 },
                 y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
               }}
-              className="w-full max-w-sm rounded-2xl border border-border/80 bg-[#070709] p-5 shadow-[0_0_40px_rgba(99,102,241,0.06)] backdrop-blur"
+              className="w-full max-w-md rounded-2xl border border-border/80 bg-[#070709] p-5 shadow-[0_0_40px_rgba(99,102,241,0.06)] backdrop-blur"
             >
               {/* Header */}
               <div className="flex items-center justify-between border-b border-border/40 pb-3 mb-4">
@@ -159,27 +158,32 @@ export function Hero() {
               </div>
 
               {/* Body */}
-              <div className="font-mono text-xs sm:text-sm space-y-4 text-left">
+              <div className="font-mono text-xs sm:text-[13px] space-y-3 text-left">
                 <div className="flex gap-2">
                   <span className="text-primary font-bold">$</span>
                   <span className="text-white">cat profile.json</span>
                 </div>
                 <div className="pl-3 space-y-2 text-muted-foreground">
                   <div>
-                    <span className="text-indigo-400">name</span>: <span className="text-primary">"Shrish"</span>,
+                    <span className="text-indigo-400">role</span>: <span className="text-primary">"Full-Stack Engineer"</span>
                   </div>
                   <div>
-                    <span className="text-indigo-400">stack</span>: [<span className="text-primary">"Full Stack"</span>, <span className="text-primary">"MERN"</span>, <span className="text-primary">"AI"</span>],
+                    <span className="text-indigo-400">focus</span>: <span className="text-emerald-400">"Backend Engineering · Node.js & Express"</span>
                   </div>
                   <div>
-                    <span className="text-indigo-400">dsa problems solved</span>: <span className="text-amber-400">"900+"</span>,
+                    <span className="text-indigo-400">frontend</span>: <span className="text-cyan-400">"React.js"</span>
                   </div>
-
                   <div>
-                    <span className="text-indigo-400">shipping</span>: <span className="text-emerald-400">true</span>
+                    <span className="text-indigo-400">deployment</span>: <span className="text-violet-400">"Vercel · Render"</span>
+                  </div>
+                  <div>
+                    <span className="text-indigo-400">dsa</span>: <span className="text-amber-400">"900+ Problems Solved"</span>
+                  </div>
+                  <div>
+                    <span className="text-indigo-400">shipping</span>: <span className="text-emerald-400">"Production Ready"</span>
                   </div>
                 </div>
-                <div className="pl-3 mt-4 flex items-center gap-1.5 text-muted-foreground/50 text-[10px] border-t border-border/20 pt-3">
+                <div className="pl-3 mt-4 flex items-center gap-1.5 text-muted-foreground/60 text-xs border-t border-border/20 pt-3">
                   <MapPin className="h-3.5 w-3.5 text-primary" />
                   Noida, India
                 </div>
